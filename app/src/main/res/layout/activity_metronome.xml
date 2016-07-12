@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MetronomeActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/txt_mode"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bbg"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/btn_vibration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawablePadding="@dimen/btn_padding"
+            android:drawableTop="@drawable/vibro_btn_icon"
+            android:gravity="center"
+            android:padding="@dimen/btn_padding"
+            android:textAllCaps="true"
+            android:textColor="@drawable/text_color"
+            android:textOff="@string/btn_vibration"
+            android:textOn="@string/btn_vibration"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+        <ToggleButton
+            android:id="@+id/btn_flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawablePadding="@dimen/btn_padding"
+            android:drawableTop="@drawable/flash_btn_icon"
+            android:gravity="center"
+            android:padding="@dimen/btn_padding"
+            android:textAllCaps="true"
+            android:textColor="@drawable/text_color"
+            android:textOff="@string/btn_flash"
+            android:textOn="@string/btn_flash"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+        <ToggleButton
+            android:id="@+id/btn_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawablePadding="@dimen/btn_padding"
+            android:drawableTop="@drawable/mute_btn_icon"
+            android:gravity="center"
+            android:padding="@dimen/btn_padding"
+            android:textAllCaps="true"
+            android:textColor="@drawable/text_color"
+            android:textOff="@string/btn_sound"
+            android:textOn="@string/btn_sound"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/txt_set_bmp"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editText_bmp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="@android:color/transparent"
+            android:inputType="numberDecimal"
+            android:paddingRight="5dp"
+            android:text="100"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="bpm"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:background="@android:color/transparent"
+            android:text="-"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekBar_bmp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="120"
+            android:max="200"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:progress="100"
+            android:minHeight="10dp"
+            android:maxHeight="25dp"
+            android:progressDrawable="@drawable/seekbar_bg"
+            android:thumb="@drawable/ic_seec_arrows"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:background="@android:color/transparent"
+            android:text="+"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/txt_indicator"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black" />
+
+    <ImageView
+        android:id="@+id/imgView_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:background="@drawable/indicator_off"
+        android:layout_marginBottom="25dp"/>
+
+    <ToggleButton
+        android:id="@+id/btn_start_stop"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@drawable/start_btn"
+
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textOff="@string/btn_start"
+        android:textOn="@string/btn_stop" />
+
+
+</LinearLayout>
