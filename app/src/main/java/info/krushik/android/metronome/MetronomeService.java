@@ -31,7 +31,6 @@ public class MetronomeService extends Service {
     private boolean soundOn = false;
 
 
-
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -43,6 +42,7 @@ public class MetronomeService extends Service {
         timer = new Timer("MetronomeTimer", true);
 
         handler = new Handler();
+        //проверка наличия камеры и вспышки
         cameraIsAvailable = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)
                 && getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
@@ -96,7 +96,7 @@ public class MetronomeService extends Service {
         timer.cancel();
         timer.purge();
 
-        if (camera!=null) {
+        if (camera != null) {
             camera.release();
         }
 

@@ -30,7 +30,7 @@ public class MetronomeActivity extends AppCompatActivity {
     private ToggleButton mFlashToggleButton;
     private ToggleButton mSoundToggleButton;
 
-    private ToggleButton mStartStopToggleButton;
+    ToggleButton mStartStopToggleButton;
     private SeekBar mBmpSeekBar;
     private EditText mBmpEditText;
     private ImageView mIndicatorImageView;
@@ -59,6 +59,7 @@ public class MetronomeActivity extends AppCompatActivity {
         mIndicatorImageView = (ImageView) findViewById(R.id.imgView_indicator);
     }
 
+    // создаем BroadcastReceiver
     private void initBroadcastReceiver() {
         mServiceReceiverMetronome = new BroadcastReceiver() {
             @Override
@@ -66,9 +67,21 @@ public class MetronomeActivity extends AppCompatActivity {
                 boolean indicatorIsOn = intent.getBooleanExtra(MetronomeService.INDICATOR_STATE_EXTRA, false);
 
                 if (indicatorIsOn) {
-                    mIndicatorImageView.setBackgroundDrawable(getResources().getDrawable(R.drawable.indicator_on));
+//                    mIndicatorImageView.setBackgroundDrawable(getResources().getDrawable(R.drawable.indicator_on));
+                    mIndicatorImageView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mIndicatorImageView.setImageResource(R.drawable.indicator_on);
+                        }
+                    });
                 } else {
-                    mIndicatorImageView.setBackgroundDrawable(getResources().getDrawable(R.drawable.indicator_off));
+//                    mIndicatorImageView.setBackgroundDrawable(getResources().getDrawable(R.drawable.indicator_off));
+                    mIndicatorImageView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mIndicatorImageView.setImageResource(R.drawable.indicator_off);
+                        }
+                    }, 100);
                 }
             }
         };
@@ -206,4 +219,25 @@ public class MetronomeActivity extends AppCompatActivity {
         unregisterReceiver(mServiceReceiverMetronome);
         super.onBackPressed();
     }
+
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//
+//        unregisterReceiver(mServiceReceiverMetronome);
+//    }
+
+//    @Override
+//    protected void onStop()
+//    {
+//        unregisterReceiver(mServiceReceiverMetronome);
+//        super.onStop();
+//    }
+
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        // дерегистрируем (выключаем) BroadcastReceiver
+//        unregisterReceiver(mServiceReceiverMetronome);
+//    }
 }
